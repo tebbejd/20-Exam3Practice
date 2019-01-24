@@ -6,8 +6,8 @@ This problem provides practice at:
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and Jacob Tebbe.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ###############################################################################
 # Students:
@@ -37,6 +37,7 @@ def main():
     """ Calls the   TEST   functions in this module. """
     run_test_practice_problem3()
 
+
 # -----------------------------------------------------------------------------
 # Students: Some of the testing code below uses SimpleTestCase objects,
 #           from the imported   simple_testing (st)   module.
@@ -46,7 +47,7 @@ def main():
 def run_test_practice_problem3():
     """ Tests the   practice_problem3  function. """
     ###########################################################################
-    # TODO: 2. Implement this TEST function.
+    # DONE: 2. Implement this TEST function.
     #   It TESTS the  practice_problem3  function defined below.
     #   Include at least ** 2 ** ADDITIONAL tests beyond those we wrote.
     #
@@ -126,7 +127,7 @@ def run_test_practice_problem3():
     st.SimpleTestCase.run_tests('practice_problem3', tests)
 
     ###########################################################################
-    # TO DO 2 continued:  More tests:
+    # DONE 2 continued:  More tests:
     #      YOU add at least **   2   ** additional tests here.
     #
     # You can use the   SimpleTestCase  class as above, or use
@@ -135,6 +136,25 @@ def run_test_practice_problem3():
     # SUGGESTION: Ask an assistant to CHECK your tests to confirm
     #             that they are adequate tests!
     ###########################################################################
+    # test 15
+    n = 4
+    start = 2
+    threshold = -1
+    expected = [2, 3, 5, 6]
+    answer = practice_problem3(start, n, threshold)
+    print(expected)
+    print(answer)
+    print()
+
+    # test 15
+    n = 0
+    start = 6
+    threshold = 0
+    expected = []
+    answer = practice_problem3(start, n, threshold)
+    print(expected)
+    print(answer)
+    print()
 
 
 def practice_problem3(start, n, threshold):
@@ -209,7 +229,7 @@ def practice_problem3(start, n, threshold):
       :type threshold: float
     """
     ###########################################################################
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #          Some tests are already written for you (above),
     #          but you are required to write ADDITIONAL tests (above).
     ###########################################################################
@@ -217,6 +237,20 @@ def practice_problem3(start, n, threshold):
     #    DIFFICULTY:      5
     #    TIME ESTIMATE:   < 15 minutes.
     ###########################################################################
+    list = []
+    if n == 0:
+        return list
+    elif threshold > math.sqrt(2):
+        for k in range(n):
+            list.append(start + k)
+        return list
+    else:
+        while True:
+            if math.cos(start) + math.sin(start) > threshold:
+                list.append(start)
+            if len(list) == n:
+                return list
+            start += 1
 
 
 # -----------------------------------------------------------------------------
